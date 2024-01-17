@@ -1,0 +1,36 @@
+import { test, expect } from '@playwright/test';
+
+test('test', async ({ page }) => {
+  await page.goto('https://thinking-tester-contact-list.herokuapp.com/');
+  await page.getByPlaceholder('Email').click();
+  await page.getByPlaceholder('Email').fill('blablabla@gmail.com');
+  await page.getByPlaceholder('Password').click();
+  await page.getByPlaceholder('Password').fill('1234567');
+  await page.getByRole('button', { name: 'Submit' }).click();
+  await page.getByRole('button', { name: 'Add a New Contact' }).click();
+  await page.getByPlaceholder('First Name').click();
+  await page.getByPlaceholder('First Name').fill('Test');
+  await page.getByPlaceholder('Last Name').click();
+  await page.getByPlaceholder('Last Name').fill('Rudar');
+  await page.getByText('* First Name: * Last Name: Date of Birth: Email: Phone: Street Address 1:').click();
+  await page.getByPlaceholder('yyyy-MM-dd').click();
+  await page.getByPlaceholder('yyyy-MM-dd').fill('2002-05-05');
+  await page.getByPlaceholder('example@email.com').click();
+  await page.getByPlaceholder('example@email.com').fill('rudarkovicruda@gmail.com');
+  await page.getByPlaceholder('8005551234').click();
+  await page.getByPlaceholder('8005551234').fill('12345678');
+  await page.getByPlaceholder('Address 1').click();
+  await page.getByPlaceholder('Address 1').fill('Rudarska');
+  await page.getByPlaceholder('Address 2').click();
+  await page.getByPlaceholder('Address 2').fill('Rudnik');
+  await page.getByPlaceholder('City').click();
+  await page.getByPlaceholder('City').fill('Rudnik');
+  await page.getByPlaceholder('State or Province').click();
+  await page.getByPlaceholder('State or Province').fill('lignita');
+  await page.getByPlaceholder('Postal Code').click();
+  await page.getByPlaceholder('Postal Code').fill('12345');
+  await page.getByPlaceholder('Country').click();
+  await page.getByPlaceholder('Country').fill('Srbija');
+  await page.getByRole('button', { name: 'Submit' }).click();
+  await page.getByRole('button', { name: 'Logout' }).click();
+});
